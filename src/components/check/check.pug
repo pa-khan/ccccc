@@ -12,7 +12,7 @@ mixin check(tag = 'check', inner, classes, name = 'check', classInput = 'input',
 			for(var i = 0; i < mode.length; i++)
 				mode[i]= _.mode + mode[i]
 	#{tag}(class=classes class=inner ? inner : undefined class=name class=mode)
-		input(type="checkbox" class=name + _.elem + classInput name=attributes.name value=attributes.value checked=attributes.checked)
+		input(type=attributes.type class=name + _.elem + classInput name=attributes.name value=attributes.value checked=attributes.checked)
 		div(class=parent + _.elem + classWrap)
 			if block
 				block

@@ -1,47 +1,67 @@
 doctype html
 
-include ../_mixins
+include ../_components
 html
 	head
 		title Create Clean Components for Comforte Coding
 	body
 		link(rel='stylesheet' href='template/styles/css/style.css')
 		mixin checkbox(classes, text, name = 'checkbox')
-			+check('checkbox', 'checkbox', classes)(name=attributes.name value=attributes.value checked=attributes.checked mode=attributes.mode)
+			+check('checkbox', 'checkbox', classes)(name=attributes.name value=attributes.value checked=attributes.checked mode=attributes.mode type='checkbox')
 				.checkbox__rect
 					.checkbox__icon
 				.checkbox__text!=text
 					if block
 						block
 
-		+checkbox('sdd', 'ss')(name="lre" value="1" checked="checked")
-		+checkbox('sdd', 'ss')(name="lre" value="2")
-		+checkbox('sdd', 'ss')(name="lre" value="3")
-		script.
-			(function(){
-				var _ = {
-					elem: '__',
-					mode: '--'
-				}
-				function Check(name = 'check', classInput = 'input', classChecked = '--checked') {
-					document.createElement(name, {
-						prototype: HTMLElement.prototype
-					});
-					var checks = document.querySelectorAll('.' + name);
-					checks.forEach(function(check){
-						check.addEventListener('click', function(event){
-							var input = check.querySelector('.' + name + _.elem + classInput);
-							var isChecked = input.checked;
-							input.checked = !isChecked
-							if ( !isChecked ) {
-								check.classList.add(classChecked);
-							} else {
-								check.classList.remove(classChecked);
-							}
-						})
-					})
-					
-				}
-				new Check();
-			})();
+		mixin radio(classes, text, name = 'checkbox')
+			+check('radio', 'radio', classes)(name=attributes.name value=attributes.value checked=attributes.checked mode=attributes.mode type='radio')
+				.radio__rect
+					.radio__icon
+				.radio__text!=text
+					if block
+						block
+
+		+checkbox()(name="lre" value="1" checked="checked")
+		+checkbox()(name="lre" value="2")
+		+checkbox()(name="lre" value="3")
+
+
+		+radio()(name="ll" value="1" checked='checked')
+		+radio()(name="ll" value="2")
+		+radio()(name="ll" value="3")
+		-
+			var selectData = [
+				["oleg 1"],
+				["oleg 2", true],
+				["oleg 3"],
+				["oleg 4"]
+			]
+		+drop('drop', selectData)(placeholder="Text")
+
+
+		-
+			var slides = [
+				[
+					'this is title',
+					'desc',
+				],
+				[
+					'tsa'
+				],
+				[
+					'sdf'
+				]
+			]
+		mixin slide($)
+			=$
+		+slides('slides', 'slider')(list=slides)
+
 			
+
+
+		script(src='template/scripts/js/vars.js')
+		script(src='components/check/check.js')
+		script(src='components/drop/drop.js')
+		script(src='components/slides/slides.js')
+		script(src='template/scripts/js/common.js')

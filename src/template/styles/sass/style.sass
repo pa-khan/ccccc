@@ -20,9 +20,46 @@ $checkoxRectWidth: 20px
   &__text
     width: calc(100% - $checkoxRectWidth)
     
-  &.--checked
+  &.--selected
     .checkbox
       &__rect
         border-color: #f00
         
     
+
+.rad
+  cursor: pointer
+  &__input
+    display: none
+
+$radRectWidth: 20px
+.radio
+  &__wrap
+    display: flex
+    flex-wrap: wrap
+  &__rect
+    width: $radRectWidth
+    height: 20px
+    border: 1px solid #000
+    border-radius: 50%
+  &__text
+    width: calc(100% - $radRectWidth)
+    
+  &.--selected
+    .radio
+      &__rect
+        border-color: #f00
+
+.drop
+  cursor: pointer
+  &__select
+    display: none
+  &__list
+      
+  &__item
+    &.--selected
+      cursor: default
+  &.--open
+    .drop
+      &__list
+        

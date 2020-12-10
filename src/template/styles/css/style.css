@@ -20,5 +20,33 @@
 .checkbox__text {
   width: calc(100% - $checkoxRectWidth); }
 
-.checkbox.--checked .checkbox__rect {
+.checkbox.--selected .checkbox__rect {
   border-color: #f00; }
+
+.rad {
+  cursor: pointer; }
+  .rad__input {
+    display: none; }
+
+.radio__wrap {
+  display: flex;
+  flex-wrap: wrap; }
+
+.radio__rect {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 50%; }
+
+.radio__text {
+  width: calc(100% - $radRectWidth); }
+
+.radio.--selected .radio__rect {
+  border-color: #f00; }
+
+.drop {
+  cursor: pointer; }
+  .drop__select {
+    display: none; }
+  .drop__item.--selected {
+    cursor: default; }

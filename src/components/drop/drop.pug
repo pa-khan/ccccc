@@ -1,0 +1,19 @@
+include ../../template/markup/_vars
+
+mixin drop(tag='drop', data, classes, inner, name='drop', classSelect='select', classWrap = 'wrap', classList = 'list' , classField = 'field' , classTitle = 'title', classIcon = 'icon')
+	-
+		var parent  = inner ? inner : name
+		var classes = classes ? classes.replace(/[^\w\d,]/,'').split(',') : undefined
+		var mode    = attributes.mode ? attributes.mode.replace(/[^\w\d,]/,'').split(',') : undefined
+	#{tag}(class=classes class=inner ? inner : undefined class=name class=mode)
+		if data
+			select(class=name + _.elem + classSelect name=attributes.name)
+				each option in data
+					option(value=option[2] ? option[2] : option[0] selected=option[1] === true ? 'selected' : undefined)= option[0]
+		div(class=parent + _.elem + classWrap)
+			if block
+				block
+			div(class=parent + _.elem + classField)
+				div(class=parent + _.elem + classTitle)= attributes.placeholder
+				div(class=parent + _.elem + classIcon)
+			div(class=parent + _.elem + classList)
