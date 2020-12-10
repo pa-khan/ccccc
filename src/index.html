@@ -1,0 +1,26 @@
+<!DOCTYPE html><html><head><title>Create Clean Components for Comforte Coding</title></head><body><link rel="stylesheet" href="template/styles/css/style.css"><checkbox class="sdd__checkbox checkbox check"><input class="check__input" type="checkbox" name="lre" value="1" checked="checked"><div class="checkbox__wrap"><div class="checkbox__rect"><div class="checkbox__icon"></div></div><div class="checkbox__text">ss</div></div></checkbox><checkbox class="sdd__checkbox checkbox check"><input class="check__input" type="checkbox" name="lre" value="2"><div class="checkbox__wrap"><div class="checkbox__rect"><div class="checkbox__icon"></div></div><div class="checkbox__text">ss</div></div></checkbox><checkbox class="sdd__checkbox checkbox check"><input class="check__input" type="checkbox" name="lre" value="3"><div class="checkbox__wrap"><div class="checkbox__rect"><div class="checkbox__icon"></div></div><div class="checkbox__text">ss</div></div></checkbox><script>(function(){
+	var _ = {
+		elem: '__',
+		mode: '--'
+	}
+	function Check(name = 'check', classInput = 'input', classChecked = '--checked') {
+		document.createElement(name, {
+			prototype: HTMLElement.prototype
+		});
+		var checks = document.querySelectorAll('.' + name);
+		checks.forEach(function(check){
+			check.addEventListener('click', function(event){
+				var input = check.querySelector('.' + name + _.elem + classInput);
+				var isChecked = input.checked;
+				input.checked = !isChecked
+				if ( !isChecked ) {
+					check.classList.add(classChecked);
+				} else {
+					check.classList.remove(classChecked);
+				}
+			})
+		})
+		
+	}
+	new Check();
+})();</script></body></html>

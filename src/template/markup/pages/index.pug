@@ -1,0 +1,47 @@
+doctype html
+
+include ../_mixins
+html
+	head
+		title Create Clean Components for Comforte Coding
+	body
+		link(rel='stylesheet' href='template/styles/css/style.css')
+		mixin checkbox(classes, text, name = 'checkbox')
+			+check('checkbox', 'checkbox', classes)(name=attributes.name value=attributes.value checked=attributes.checked mode=attributes.mode)
+				.checkbox__rect
+					.checkbox__icon
+				.checkbox__text!=text
+					if block
+						block
+
+		+checkbox('sdd', 'ss')(name="lre" value="1" checked="checked")
+		+checkbox('sdd', 'ss')(name="lre" value="2")
+		+checkbox('sdd', 'ss')(name="lre" value="3")
+		script.
+			(function(){
+				var _ = {
+					elem: '__',
+					mode: '--'
+				}
+				function Check(name = 'check', classInput = 'input', classChecked = '--checked') {
+					document.createElement(name, {
+						prototype: HTMLElement.prototype
+					});
+					var checks = document.querySelectorAll('.' + name);
+					checks.forEach(function(check){
+						check.addEventListener('click', function(event){
+							var input = check.querySelector('.' + name + _.elem + classInput);
+							var isChecked = input.checked;
+							input.checked = !isChecked
+							if ( !isChecked ) {
+								check.classList.add(classChecked);
+							} else {
+								check.classList.remove(classChecked);
+							}
+						})
+					})
+					
+				}
+				new Check();
+			})();
+			

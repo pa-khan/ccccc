@@ -1,0 +1,18 @@
+include ../../template/markup/_vars
+
+mixin check(tag = 'check', inner, classes, name = 'check', classInput = 'input', classWrap = 'wrap')
+	-
+		var parent  = inner ? inner : name
+		var classes = classes ? classes.replace(/[^\w\d,]/,'').split(',') : undefined
+		var mode    = attributes.mode ? attributes.mode.replace(/[^\w\d,]/,'').split(',') : undefined
+		if (classes)
+			for(var i = 0; i < classes.length; i++)
+				classes[i]= classes[i] + _.elem + parent
+		if (mode)
+			for(var i = 0; i < mode.length; i++)
+				mode[i]= _.mode + mode[i]
+	#{tag}(class=classes class=inner ? inner : undefined class=name class=mode)
+		input(type="checkbox" class=name + _.elem + classInput name=attributes.name value=attributes.value checked=attributes.checked)
+		div(class=parent + _.elem + classWrap)
+			if block
+				block

@@ -1,0 +1,28 @@
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+
+.check
+  cursor: pointer
+  &__input
+    display: none
+
+$checkoxRectWidth: 20px
+.checkbox
+  &__wrap
+    display: flex
+    flex-wrap: wrap
+  &__rect
+    width: $checkoxRectWidth
+    height: 20px
+    border: 1px solid #000
+  &__text
+    width: calc(100% - $checkoxRectWidth)
+    
+  &.--checked
+    .checkbox
+      &__rect
+        border-color: #f00
+        
+    

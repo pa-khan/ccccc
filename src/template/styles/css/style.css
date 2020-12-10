@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+.check {
+  cursor: pointer; }
+  .check__input {
+    display: none; }
+
+.checkbox__wrap {
+  display: flex;
+  flex-wrap: wrap; }
+
+.checkbox__rect {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000; }
+
+.checkbox__text {
+  width: calc(100% - $checkoxRectWidth); }
+
+.checkbox.--checked .checkbox__rect {
+  border-color: #f00; }
