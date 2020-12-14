@@ -3,7 +3,7 @@ include ../../template/markup/_vars
 mixin slide($)
 	=$
 
-mixin slides(inner, classes, tag='slides', name = 'slides', classItem='item')
+mixin sli(inner, classes, tag='sli', name = 'sli', classItem='item')
 	-
 		var parent  = inner ? inner : name
 		var classes = classes ? classes.replace(/[^\w\d,]/,'').split(',') : undefined
@@ -11,5 +11,5 @@ mixin slides(inner, classes, tag='slides', name = 'slides', classItem='item')
 	#{tag}(class=classes class=inner ? inner : undefined class=name class=mode)
 		if (attributes.list)
 			each item in attributes.list
-				div(class=inner ? parent + _.elem + classItem : undefined class=name + _.elem + classItem)
+				div(class=inner ? parent + _.elem + classItem : undefined)
 					+slide(item)

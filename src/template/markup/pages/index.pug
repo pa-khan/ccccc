@@ -50,12 +50,19 @@ html
 					'tsa'
 				],
 				[
-					'sdf'
+					'sdf 1'
+				],
+				[
+					'sdf 2'
+				],
+				[
+					'sdf 3'
 				]
 			]
 		mixin slide($)
 			=$
-		+slides('slides', 'slider')(list=slides)
+		+sli('slider', 'sli')(list=slides)
+		//- +slides('slides', 'slider')(list=slides)
 
 			
 
@@ -63,5 +70,5 @@ html
 		script(src='template/scripts/js/vars.js')
 		script(src='components/check/check.js')
 		script(src='components/drop/drop.js')
-		script(src='components/slides/slides.js')
+		script(src='components/sli/sli.js')
 		script(src='template/scripts/js/common.js')

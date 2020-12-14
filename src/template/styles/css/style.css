@@ -50,3 +50,15 @@
     display: none; }
   .drop__item.--selected {
     cursor: default; }
+
+.sli__wrap {
+  overflow-x: hidden; }
+
+.sli__list {
+  display: flex;
+  transition: .7s; }
+
+.sli__arrow {
+  width: 20px;
+  height: 20px;
+  background-color: #f00; }
