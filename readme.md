@@ -1,10 +1,12 @@
 # Create Clean Components for Comforte Coding
  
-+ check - check - checkbox
-+ radio - rad- checkbox
-+ select - select - dropdown
-+ slider - slider - rotater
-+ input - field - 
-+ textarea - area - 
-+ popup
++ check - checkbox, radio
++ drop - select
++ field - input, textarea 
++ sli - slider
++ range
++ popup - 
++ tabs -
++ fv - form-validator
++ mask - field-mask | input-mask
 + gallery
